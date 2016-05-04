@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="championshipModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="championship">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="citys">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_ru" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_ua" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="name_en" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="coach">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="game_state">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_ru" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="name_ua" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="name_en" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="games">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="date" />
+    <Property Name="team1_id" Type="int" />
+    <Property Name="team2_id" Type="int" />
+    <Property Name="team1_score" Type="int" />
+    <Property Name="team2_score" Type="int" />
+    <Property Name="place" Type="varchar" MaxLength="200" />
+    <Property Name="game_state_id" Type="int" Nullable="false" />
+    <Property Name="stage_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="judge_in_game">
+    <Key>
+      <PropertyRef Name="games_id" />
+      <PropertyRef Name="judge_id" />
+    </Key>
+    <Property Name="games_id" Type="int" Nullable="false" />
+    <Property Name="judge_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="judges">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="player_state">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_ru" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="name_ua" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="name_en" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="players">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="team_id" Type="int" />
+    <Property Name="date_of_birth" Type="date" />
+    <Property Name="weight" Type="int" />
+    <Property Name="height" Type="int" />
+    <Property Name="position_id" Type="int" />
+    <Property Name="photo_path" Type="varchar" MaxLength="200" />
+    <Property Name="player_state_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="position">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_ru" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="name_ua" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="name_en" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="championship_id" Type="int" Nullable="false" />
+    <Property Name="type_of_stage_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="statistics">
+    <Key>
+      <PropertyRef Name="games_id" />
+      <PropertyRef Name="players_id" />
+    </Key>
+    <Property Name="games_id" Type="int" Nullable="false" />
+    <Property Name="players_id" Type="int" Nullable="false" />
+    <Property Name="free_throws_attempts" Type="int" Nullable="false" />
+    <Property Name="free_throws_made" Type="int" Nullable="false" />
+    <Property Name="two_point_throws_attempts" Type="int" Nullable="false" />
+    <Property Name="two_point_throws_made" Type="int" Nullable="false" />
+    <Property Name="three_point_throws_attempts" Type="int" Nullable="false" />
+    <Property Name="three_point_throws_made" Type="int" Nullable="false" />
+    <Property Name="total_score" Type="int" />
+    <Property Name="offensive_rebounds" Type="int" Nullable="false" />
+    <Property Name="deffensive_rebounds" Type="int" Nullable="false" />
+    <Property Name="assists" Type="int" Nullable="false" />
+    <Property Name="steals" Type="int" Nullable="false" />
+    <Property Name="turnovers" Type="int" Nullable="false" />
+    <Property Name="blocked_shots" Type="int" Nullable="false" />
+    <Property Name="commited_fouls" Type="int" Nullable="false" />
+    <Property Name="recieved_fouls" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="teams">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="short_name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+    <Property Name="coach_id" Type="int" />
+    <Property Name="citys_id" Type="int" />
+  </EntityType>
+  <EntityType Name="teams_in_stage">
+    <Key>
+      <PropertyRef Name="teams_id" />
+      <PropertyRef Name="stage_id" />
+    </Key>
+    <Property Name="teams_id" Type="int" Nullable="false" />
+    <Property Name="stage_id" Type="int" Nullable="false" />
+    <Property Name="teamscore" Type="int" />
+  </EntityType>
+  <EntityType Name="type_of_stage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_ru" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="name_ua" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="name_en" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="role" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_games_game_state">
+    <End Role="game_state" Type="Self.game_state" Multiplicity="1" />
+    <End Role="games" Type="Self.games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="game_state">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="games">
+        <PropertyRef Name="game_state_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_games_has_judge_games1">
+    <End Role="games" Type="Self.games" Multiplicity="1" />
+    <End Role="judge_in_game" Type="Self.judge_in_game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="games">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="judge_in_game">
+        <PropertyRef Name="games_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_games_has_judge_judge1">
+    <End Role="judges" Type="Self.judges" Multiplicity="1" />
+    <End Role="judge_in_game" Type="Self.judge_in_game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="judges">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="judge_in_game">
+        <PropertyRef Name="judge_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_games_has_players_games1">
+    <End Role="games" Type="Self.games" Multiplicity="1" />
+    <End Role="statistics" Type="Self.statistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="games">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="statistics">
+        <PropertyRef Name="games_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_games_has_players_players1">
+    <End Role="players" Type="Self.players" Multiplicity="1" />
+    <End Role="statistics" Type="Self.statistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="players">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="statistics">
+        <PropertyRef Name="players_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_games_stage">
+    <End Role="stage" Type="Self.stage" Multiplicity="1" />
+    <End Role="games" Type="Self.games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stage">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="games">
+        <PropertyRef Name="stage_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_players_player_state">
+    <End Role="player_state" Type="Self.player_state" Multiplicity="1" />
+    <End Role="players" Type="Self.players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="player_state">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="players">
+        <PropertyRef Name="player_state_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_stage_championship1">
+    <End Role="championship" Type="Self.championship" Multiplicity="1" />
+    <End Role="stage" Type="Self.stage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="championship">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="stage">
+        <PropertyRef Name="championship_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_stage_type_of_stage1">
+    <End Role="type_of_stage" Type="Self.type_of_stage" Multiplicity="1" />
+    <End Role="stage" Type="Self.stage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type_of_stage">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="stage">
+        <PropertyRef Name="type_of_stage_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_teams_citys1">
+    <End Role="citys" Type="Self.citys" Multiplicity="0..1" />
+    <End Role="teams" Type="Self.teams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citys">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="teams">
+        <PropertyRef Name="citys_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_teams_coach1">
+    <End Role="coach" Type="Self.coach" Multiplicity="0..1" />
+    <End Role="teams" Type="Self.teams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coach">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="teams">
+        <PropertyRef Name="coach_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_teams_has_stage_stage1">
+    <End Role="stage" Type="Self.stage" Multiplicity="1" />
+    <End Role="teams_in_stage" Type="Self.teams_in_stage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stage">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="teams_in_stage">
+        <PropertyRef Name="stage_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_teams_has_stage_teams1">
+    <End Role="teams" Type="Self.teams" Multiplicity="1" />
+    <End Role="teams_in_stage" Type="Self.teams_in_stage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teams">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="teams_in_stage">
+        <PropertyRef Name="teams_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_user_role">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="game_team1_FK">
+    <End Role="teams" Type="Self.teams" Multiplicity="0..1" />
+    <End Role="games" Type="Self.games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teams">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="games">
+        <PropertyRef Name="team1_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="game_team2_FK">
+    <End Role="teams" Type="Self.teams" Multiplicity="0..1" />
+    <End Role="games" Type="Self.games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teams">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="games">
+        <PropertyRef Name="team2_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="player_position_FK">
+    <End Role="position" Type="Self.position" Multiplicity="0..1" />
+    <End Role="players" Type="Self.players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="position">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="players">
+        <PropertyRef Name="position_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="player_team_FK">
+    <End Role="teams" Type="Self.teams" Multiplicity="0..1" />
+    <End Role="players" Type="Self.players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teams">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="players">
+        <PropertyRef Name="team_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="championshipModelStoreContainer">
+    <EntitySet Name="championship" EntityType="Self.championship" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="citys" EntityType="Self.citys" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="coach" EntityType="Self.coach" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="game_state" EntityType="Self.game_state" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="games" EntityType="Self.games" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="judge_in_game" EntityType="Self.judge_in_game" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="judges" EntityType="Self.judges" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="player_state" EntityType="Self.player_state" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="players" EntityType="Self.players" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="position" EntityType="Self.position" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="stage" EntityType="Self.stage" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="statistics" EntityType="Self.statistics" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="teams" EntityType="Self.teams" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="teams_in_stage" EntityType="Self.teams_in_stage" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="type_of_stage" EntityType="Self.type_of_stage" Schema="championship" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="championship" store:Type="Tables" />
+    <AssociationSet Name="fk_games_game_state" Association="Self.fk_games_game_state">
+      <End Role="game_state" EntitySet="game_state" />
+      <End Role="games" EntitySet="games" />
+    </AssociationSet>
+    <AssociationSet Name="fk_games_has_judge_games1" Association="Self.fk_games_has_judge_games1">
+      <End Role="games" EntitySet="games" />
+      <End Role="judge_in_game" EntitySet="judge_in_game" />
+    </AssociationSet>
+    <AssociationSet Name="fk_games_has_judge_judge1" Association="Self.fk_games_has_judge_judge1">
+      <End Role="judges" EntitySet="judges" />
+      <End Role="judge_in_game" EntitySet="judge_in_game" />
+    </AssociationSet>
+    <AssociationSet Name="fk_games_has_players_games1" Association="Self.fk_games_has_players_games1">
+      <End Role="games" EntitySet="games" />
+      <End Role="statistics" EntitySet="statistics" />
+    </AssociationSet>
+    <AssociationSet Name="fk_games_has_players_players1" Association="Self.fk_games_has_players_players1">
+      <End Role="players" EntitySet="players" />
+      <End Role="statistics" EntitySet="statistics" />
+    </AssociationSet>
+    <AssociationSet Name="fk_games_stage" Association="Self.fk_games_stage">
+      <End Role="stage" EntitySet="stage" />
+      <End Role="games" EntitySet="games" />
+    </AssociationSet>
+    <AssociationSet Name="fk_players_player_state" Association="Self.fk_players_player_state">
+      <End Role="player_state" EntitySet="player_state" />
+      <End Role="players" EntitySet="players" />
+    </AssociationSet>
+    <AssociationSet Name="fk_stage_championship1" Association="Self.fk_stage_championship1">
+      <End Role="championship" EntitySet="championship" />
+      <End Role="stage" EntitySet="stage" />
+    </AssociationSet>
+    <AssociationSet Name="fk_stage_type_of_stage1" Association="Self.fk_stage_type_of_stage1">
+      <End Role="type_of_stage" EntitySet="type_of_stage" />
+      <End Role="stage" EntitySet="stage" />
+    </AssociationSet>
+    <AssociationSet Name="fk_teams_citys1" Association="Self.fk_teams_citys1">
+      <End Role="citys" EntitySet="citys" />
+      <End Role="teams" EntitySet="teams" />
+    </AssociationSet>
+    <AssociationSet Name="fk_teams_coach1" Association="Self.fk_teams_coach1">
+      <End Role="coach" EntitySet="coach" />
+      <End Role="teams" EntitySet="teams" />
+    </AssociationSet>
+    <AssociationSet Name="fk_teams_has_stage_stage1" Association="Self.fk_teams_has_stage_stage1">
+      <End Role="stage" EntitySet="stage" />
+      <End Role="teams_in_stage" EntitySet="teams_in_stage" />
+    </AssociationSet>
+    <AssociationSet Name="fk_teams_has_stage_teams1" Association="Self.fk_teams_has_stage_teams1">
+      <End Role="teams" EntitySet="teams" />
+      <End Role="teams_in_stage" EntitySet="teams_in_stage" />
+    </AssociationSet>
+    <AssociationSet Name="fk_user_role" Association="Self.fk_user_role">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="game_team1_FK" Association="Self.game_team1_FK">
+      <End Role="teams" EntitySet="teams" />
+      <End Role="games" EntitySet="games" />
+    </AssociationSet>
+    <AssociationSet Name="game_team2_FK" Association="Self.game_team2_FK">
+      <End Role="teams" EntitySet="teams" />
+      <End Role="games" EntitySet="games" />
+    </AssociationSet>
+    <AssociationSet Name="player_position_FK" Association="Self.player_position_FK">
+      <End Role="position" EntitySet="position" />
+      <End Role="players" EntitySet="players" />
+    </AssociationSet>
+    <AssociationSet Name="player_team_FK" Association="Self.player_team_FK">
+      <End Role="teams" EntitySet="teams" />
+      <End Role="players" EntitySet="players" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

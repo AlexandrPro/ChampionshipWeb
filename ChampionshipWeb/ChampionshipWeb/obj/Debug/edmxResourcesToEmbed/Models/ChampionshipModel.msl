@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="championshipModelStoreContainer" CdmEntityContainer="championshipEntities">
+    <EntitySetMapping Name="championships">
+      <EntityTypeMapping TypeName="championshipModel.championship">
+        <MappingFragment StoreEntitySet="championship">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="citys">
+      <EntityTypeMapping TypeName="championshipModel.city">
+        <MappingFragment StoreEntitySet="citys">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+          <ScalarProperty Name="name_ua" ColumnName="name_ua" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="coaches">
+      <EntityTypeMapping TypeName="championshipModel.coach">
+        <MappingFragment StoreEntitySet="coach">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="game_state">
+      <EntityTypeMapping TypeName="championshipModel.game_state">
+        <MappingFragment StoreEntitySet="game_state">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+          <ScalarProperty Name="name_ua" ColumnName="name_ua" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="games">
+      <EntityTypeMapping TypeName="championshipModel.game">
+        <MappingFragment StoreEntitySet="games">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="team1_id" ColumnName="team1_id" />
+          <ScalarProperty Name="team2_id" ColumnName="team2_id" />
+          <ScalarProperty Name="team1_score" ColumnName="team1_score" />
+          <ScalarProperty Name="team2_score" ColumnName="team2_score" />
+          <ScalarProperty Name="place" ColumnName="place" />
+          <ScalarProperty Name="game_state_id" ColumnName="game_state_id" />
+          <ScalarProperty Name="stage_id" ColumnName="stage_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="judges">
+      <EntityTypeMapping TypeName="championshipModel.judge">
+        <MappingFragment StoreEntitySet="judges">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="player_state">
+      <EntityTypeMapping TypeName="championshipModel.player_state">
+        <MappingFragment StoreEntitySet="player_state">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+          <ScalarProperty Name="name_ua" ColumnName="name_ua" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="players">
+      <EntityTypeMapping TypeName="championshipModel.player">
+        <MappingFragment StoreEntitySet="players">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="team_id" ColumnName="team_id" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="position_id" ColumnName="position_id" />
+          <ScalarProperty Name="photo_path" ColumnName="photo_path" />
+          <ScalarProperty Name="player_state_id" ColumnName="player_state_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="positions">
+      <EntityTypeMapping TypeName="championshipModel.position">
+        <MappingFragment StoreEntitySet="position">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+          <ScalarProperty Name="name_ua" ColumnName="name_ua" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="championshipModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stages">
+      <EntityTypeMapping TypeName="championshipModel.stage">
+        <MappingFragment StoreEntitySet="stage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="championship_id" ColumnName="championship_id" />
+          <ScalarProperty Name="type_of_stage_id" ColumnName="type_of_stage_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="statistics">
+      <EntityTypeMapping TypeName="championshipModel.statistic">
+        <MappingFragment StoreEntitySet="statistics">
+          <ScalarProperty Name="games_id" ColumnName="games_id" />
+          <ScalarProperty Name="players_id" ColumnName="players_id" />
+          <ScalarProperty Name="free_throws_attempts" ColumnName="free_throws_attempts" />
+          <ScalarProperty Name="free_throws_made" ColumnName="free_throws_made" />
+          <ScalarProperty Name="two_point_throws_attempts" ColumnName="two_point_throws_attempts" />
+          <ScalarProperty Name="two_point_throws_made" ColumnName="two_point_throws_made" />
+          <ScalarProperty Name="three_point_throws_attempts" ColumnName="three_point_throws_attempts" />
+          <ScalarProperty Name="three_point_throws_made" ColumnName="three_point_throws_made" />
+          <ScalarProperty Name="total_score" ColumnName="total_score" />
+          <ScalarProperty Name="offensive_rebounds" ColumnName="offensive_rebounds" />
+          <ScalarProperty Name="deffensive_rebounds" ColumnName="deffensive_rebounds" />
+          <ScalarProperty Name="assists" ColumnName="assists" />
+          <ScalarProperty Name="steals" ColumnName="steals" />
+          <ScalarProperty Name="turnovers" ColumnName="turnovers" />
+          <ScalarProperty Name="blocked_shots" ColumnName="blocked_shots" />
+          <ScalarProperty Name="commited_fouls" ColumnName="commited_fouls" />
+          <ScalarProperty Name="recieved_fouls" ColumnName="recieved_fouls" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teams">
+      <EntityTypeMapping TypeName="championshipModel.team">
+        <MappingFragment StoreEntitySet="teams">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="short_name" ColumnName="short_name" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="coach_id" ColumnName="coach_id" />
+          <ScalarProperty Name="citys_id" ColumnName="citys_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teams_in_stage">
+      <EntityTypeMapping TypeName="championshipModel.teams_in_stage">
+        <MappingFragment StoreEntitySet="teams_in_stage">
+          <ScalarProperty Name="teams_id" ColumnName="teams_id" />
+          <ScalarProperty Name="stage_id" ColumnName="stage_id" />
+          <ScalarProperty Name="teamscore" ColumnName="teamscore" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type_of_stage">
+      <EntityTypeMapping TypeName="championshipModel.type_of_stage">
+        <MappingFragment StoreEntitySet="type_of_stage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_ru" ColumnName="name_ru" />
+          <ScalarProperty Name="name_ua" ColumnName="name_ua" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="championshipModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="judge_in_game" TypeName="championshipModel.judge_in_game" StoreEntitySet="judge_in_game">
+      <EndProperty Name="games">
+        <ScalarProperty Name="id" ColumnName="games_id" />
+      </EndProperty>
+      <EndProperty Name="judges">
+        <ScalarProperty Name="id" ColumnName="judge_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
