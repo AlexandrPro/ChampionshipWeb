@@ -1,0 +1,51 @@
+INSERT INTO `championship`.`position` (`name_ru`, `name_ua`, `name_en`) VALUES ('Разыгрывающий защитник', 'Розігруючий захисник', 'Point guard');
+
+INSERT INTO `championship`.`position` (`name_ru`, `name_ua`, `name_en`) VALUES ('Атакующий защитник', 'Атакуючий захисник', 'Shopoting guard');
+
+INSERT INTO `championship`.`position` (`name_ru`, `name_ua`, `name_en`) VALUES ('Легкий форвард', 'Легкий форвард', 'Small forward');
+
+INSERT INTO `championship`.`position` (`name_ru`, `name_ua`, `name_en`) VALUES ('Тяжелый форвард', 'Важкий форвард', 'Power forward');
+
+INSERT INTO `championship`.`position` (`name_ru`, `name_ua`, `name_en`) VALUES ('Центровой', 'Центровий', 'Center');
+
+
+INSERT INTO `championship`.`game_state` (`name_ru`, `name_ua`, `name_en`) VALUES ('планируется', 'планується', 'planned');
+
+INSERT INTO `championship`.`game_state` (`name_ru`, `name_ua`, `name_en`) VALUES ('идет', 'йде', 'going on');
+
+INSERT INTO `championship`.`game_state` (`name_ru`, `name_ua`, `name_en`) VALUES ('закончена', 'закінчена', 'over');
+
+INSERT INTO `championship`.`game_state` (`name_ru`, `name_ua`, `name_en`) VALUES ('отменена', 'скасована', 'canseled');
+
+
+INSERT INTO `championship`.`player_state` (`name_ru`, `name_ua`, `name_en`) VALUES ('активный', 'активний', 'active');
+
+INSERT INTO `championship`.`player_state` (`name_ru`, `name_ua`, `name_en`) VALUES ('запасной', 'запасний', 'reserve');
+
+INSERT INTO `championship`.`player_state` (`name_ru`, `name_ua`, `name_en`) VALUES ('дисквалифицированный', 'дискваліфікований', 'suspended');
+
+INSERT INTO `championship`.`player_state` (`name_ru`, `name_ua`, `name_en`) VALUES ('травмированный ', 'травмований', 'injured');
+
+
+INSERT INTO `championship`.`type_of_stage` (`name_ru`, `name_ua`, `name_en`) VALUES ('региональный', 'регіональний', 'regional');
+
+INSERT INTO `championship`.`type_of_stage` (`name_ru`, `name_ua`, `name_en`) VALUES ('дивизион', 'дивізіон', 'division');
+
+INSERT INTO `championship`.`type_of_stage` (`name_ru`, `name_ua`, `name_en`) VALUES ('финал', 'фінал', 'final');
+
+
+INSERT INTO `championship`.`roles` (`name`) VALUES ('admin');
+
+
+INSERT INTO `championship`.`users` (`login`, `password`, `post`) VALUES ('admin', 'admin', '1');
+
+NSERT INTO `championship`.`citys` (`name_ru`, `name_ua`, `name_en`) VALUES ('Харьков', 'Харків', 'Kharkiv');
+INSERT INTO `championship`.`citys` (`name_ru`, `name_ua`, `name_en`) VALUES ('Киев', 'Київ', 'Kiev');
+
+INSERT INTO `championship`.`roles` (`name`) VALUES ('admin');
+
+INSERT INTO `championship`.`roles` (`name`) VALUES ('moderator');
+
+INSERT INTO `championship`.`users` (`login`, `password`, `role`) VALUES ('admin', 'admin', '1');
+
+INSERT INTO `championship`.`users` (`login`, `password`, `role`) VALUES ('moder', 'moder', '2');

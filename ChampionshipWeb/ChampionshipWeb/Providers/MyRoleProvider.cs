@@ -14,7 +14,7 @@ namespace ChampionshipWeb.Providers
     {
         public override string[] GetRolesForUser(string login)
         {
-            string[] role = new string[] { };
+            string[] role_ = new string[] { };
             using (championshipEntities _db = new championshipEntities())
             {
                 try
@@ -30,16 +30,16 @@ namespace ChampionshipWeb.Providers
 
                         if (userRole != null)
                         {
-                            role = new string[] { userRole.name };
+                            role_ = new string[] { userRole.name };
                         }
                     }
                 }
                 catch
                 {
-                    role = new string[] { };
+                    role_ = new string[] { };
                 }
             }
-            return role;
+            return role_;
         }
         public override bool IsUserInRole(string username, string roleName)
         {
