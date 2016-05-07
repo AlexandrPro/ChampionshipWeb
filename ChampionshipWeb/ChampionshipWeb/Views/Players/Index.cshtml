@@ -4,6 +4,18 @@
     ViewBag.Title = "Players";
 }
 
+
+<div>
+    <form method="post" action="/Players/Index">
+        <tr>
+            <td><p>Team: </p></td>
+            <td> @Html.DropDownList("team", ViewBag.Teams as SelectList)</td>
+            <td><input type="submit" value="Фильтр" /> </td>
+        </tr>
+    </form>
+</div>
+
+
 <h2>Index</h2>
 
 <p>

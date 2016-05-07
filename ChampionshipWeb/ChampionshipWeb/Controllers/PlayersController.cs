@@ -19,7 +19,41 @@ namespace ChampionshipWeb.Controllers
         public ActionResult Index()
         {
             var players = db.players.Include(p => p.player_state).Include(p => p.position).Include(p => p.team);
+
+            //добавляем поля для фильтрации
+            List<team> Teams = db.teams.ToList();
+            //Добавляем в список возможность выбора всех
+            Teams.Insert(0, new team { short_name = "Все", id = 0 });
+            ViewBag.Teams = new SelectList(Teams, "id", "short_name");
+
             return View(players.ToList());
+        }
+
+        //Поиск игроков по команде и 
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Index(int team)
+        {
+            IEnumerable<player> allPlayers = null;
+            if (team == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            if (team != 0)
+            {
+                allPlayers = from player in db.players.Include(p => p.player_state).Include(p => p.position).Include(p => p.team)
+                             where player.team_id == team
+                             select player;
+            }
+
+
+            //добавляем поля для фильтрации
+            List<team> Teams = db.teams.ToList();
+            //Добавляем в список возможность выбора всех
+            Teams.Insert(0, new team { short_name = "Все", id = 0 });
+            ViewBag.Teams = new SelectList(Teams, "id", "short_name");
+
+            return View(allPlayers.ToList());
         }
 
         // GET: Players/Details/5
