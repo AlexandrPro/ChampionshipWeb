@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ChampionshipWeb.Models.player>
+
+<p>
+    @if (HttpContext.Current.User.IsInRole("admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.player_state.name_ru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.position.name_ru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team.short_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.player_state.name_ru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.position.name_ru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.team.short_name)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.id })
+                @if (HttpContext.Current.User.IsInRole("admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                }
+                @if (HttpContext.Current.User.IsInRole("admin"))
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                }
+            </td>
+        </tr>
+    }
+
+</table>

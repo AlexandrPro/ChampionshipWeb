@@ -35,6 +35,13 @@ namespace ChampionshipWeb.Controllers
             {
                 return HttpNotFound();
             }
+
+            IEnumerable<player> allPlayers = null;
+            allPlayers = from player in db.players.Include(p => p.player_state).Include(p => p.position).Include(p => p.team)
+                         where player.team_id == id
+                         select player;
+            ViewBag.allPlayers = allPlayers;
+
             return View(team);
         }
 

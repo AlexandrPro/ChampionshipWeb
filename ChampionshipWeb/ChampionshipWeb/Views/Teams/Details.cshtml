@@ -4,18 +4,12 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            Short Name
-        </dt>
-
-        <dd>
+        <h2>
             @Html.DisplayFor(model => model.short_name)
-        </dd>
+        </h2>
 
         <dt>
             Name
@@ -43,6 +37,11 @@
 
     </dl>
 </div>
+
+<h3>Players</h3>
+@Html.Partial("~/Views/Players/_Index.cshtml", ViewBag.allPlayers as IEnumerable<ChampionshipWeb.Models.player>);
+
+
 <p>
     @if (HttpContext.Current.User.IsInRole("admin"))
     {

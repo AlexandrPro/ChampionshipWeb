@@ -285,6 +285,7 @@
     <Content Include="Views\Teams\Details.cshtml" />
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Players\_Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
