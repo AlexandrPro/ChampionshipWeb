@@ -56,19 +56,6 @@ namespace ChampionshipWeb.Controllers
             return View(allPlayers.ToList());
         }
 
-        //[AllowAnonymous]
-        //public ActionResult PartialIndex(int id)
-        //{
-        //    IEnumerable<player> allPlayers = null;
-        //    if (id != 0)
-        //    {
-        //        allPlayers = from player in db.players.Include(p => p.player_state).Include(p => p.position).Include(p => p.team)
-        //                     where player.team_id == id
-        //                     select player;
-        //    }
-        //    return PartialView(allPlayers);
-        //}
-
         [AllowAnonymous]
         public ActionResult PartialIndex()
         {

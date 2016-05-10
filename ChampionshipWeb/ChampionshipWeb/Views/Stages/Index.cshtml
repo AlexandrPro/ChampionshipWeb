@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ChampionshipWeb.Models.team>
+﻿@model IEnumerable<ChampionshipWeb.Models.stage>
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @if (HttpContext.Current.User.IsInRole("admin, moder"))
+    @if (HttpContext.Current.User.IsInRole("admin"))
     {
         @Html.ActionLink("Create New", "Create")
     }
@@ -15,16 +15,13 @@
 <table class="table">
     <tr>
         <th>
-            Short Name
+            @Html.DisplayNameFor(model => model.name)
         </th>
         <th>
-            Name
+            @Html.DisplayNameFor(model => model.championship.name)
         </th>
         <th>
-            City
-        </th>
-        <th>
-            Coach
+            @Html.DisplayNameFor(model => model.type_of_stage.name_ru)
         </th>
         <th></th>
     </tr>
@@ -32,24 +29,21 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.short_name)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.city.name_ru)
+            @Html.DisplayFor(modelItem => item.championship.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.coach.name)
+            @Html.DisplayFor(modelItem => item.type_of_stage.name_ru)
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.id })
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @if (HttpContext.Current.User.IsInRole("admin"))
             {
                 @Html.ActionLink("Edit", "Edit", new { id = item.id })
             }
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @if (HttpContext.Current.User.IsInRole("admin"))
             {
                 @Html.ActionLink("Delete", "Delete", new { id = item.id })
             }

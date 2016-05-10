@@ -1,0 +1,49 @@
+﻿@model ChampionshipWeb.Models.stage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>stage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.championship.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.championship.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type_of_stage.name_ru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type_of_stage.name_ru)
+        </dd>
+
+    </dl>
+</div>
+
+<h3>Games</h3>
+@Html.Partial("~/Views/Games/_Index.cshtml", ViewBag.allGames as IEnumerable<ChampionshipWeb.Models.game>);
+
+<p>
+    @if (HttpContext.Current.User.IsInRole("admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id })
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>

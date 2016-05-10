@@ -43,7 +43,7 @@
 
 
 <p>
-    @if (HttpContext.Current.User.IsInRole("admin"))
+    @if (HttpContext.Current.User.IsInRole("admin, moder"))
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.id }) 
     }

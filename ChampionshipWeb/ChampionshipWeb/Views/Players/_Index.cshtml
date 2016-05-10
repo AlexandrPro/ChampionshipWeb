@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ChampionshipWeb.Models.player>
 
 <p>
-    @if (HttpContext.Current.User.IsInRole("admin"))
+    @if (HttpContext.Current.User.IsInRole("admin, moder"))
     {
         @Html.ActionLink("Create New", "Create")
     }
@@ -39,14 +39,14 @@
                 @Html.DisplayFor(modelItem => item.team.short_name)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.id })
-                @if (HttpContext.Current.User.IsInRole("admin"))
+                @Html.ActionLink("Details", "Details", "Players", new { id = item.id }, null)
+                @if (HttpContext.Current.User.IsInRole("admin, moder"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                    @Html.ActionLink("Edit", "Edit", "Players", new { id = item.id }, null)
                 }
-                @if (HttpContext.Current.User.IsInRole("admin"))
+                @if (HttpContext.Current.User.IsInRole("admin, moder"))
                 {
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    @Html.ActionLink("Delete", "Delete", "Players", new { id = item.id }, null)
                 }
             </td>
         </tr>

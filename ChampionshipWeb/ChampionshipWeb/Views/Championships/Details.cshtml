@@ -1,0 +1,27 @@
+﻿@model ChampionshipWeb.Models.championship
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>championship</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <h2>
+            @Html.DisplayFor(model => model.name)
+        </h2>
+    </dl>
+</div>
+
+@Html.Partial("~/Views/Stages/_Index.cshtml", ViewBag.allStages as IEnumerable<ChampionshipWeb.Models.stage>);
+
+
+<p>
+    @if (HttpContext.Current.User.IsInRole("admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id })
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -19,7 +19,7 @@
 <h2>Index</h2>
 
 <p>
-    @if (HttpContext.Current.User.IsInRole("admin"))
+    @if (HttpContext.Current.User.IsInRole("admin, moder"))
     {
         @Html.ActionLink("Create New", "Create")
     }
@@ -57,11 +57,11 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.id })
-            @if (HttpContext.Current.User.IsInRole("admin"))
+            @if (HttpContext.Current.User.IsInRole("admin, moder"))
             {
                 @Html.ActionLink("Edit", "Edit", new { id = item.id })
             }
-            @if (HttpContext.Current.User.IsInRole("admin"))
+            @if (HttpContext.Current.User.IsInRole("admin, moder"))
             {
                 @Html.ActionLink("Delete", "Delete", new { id=item.id })
             }

@@ -192,7 +192,10 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChampionshipsController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\StagesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -286,6 +289,23 @@
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
     <Content Include="Views\Players\_Index.cshtml" />
+    <Content Include="Views\Championships\Create.cshtml" />
+    <Content Include="Views\Championships\Delete.cshtml" />
+    <Content Include="Views\Championships\Details.cshtml" />
+    <Content Include="Views\Championships\Edit.cshtml" />
+    <Content Include="Views\Championships\Index.cshtml" />
+    <Content Include="Views\Stages\Create.cshtml" />
+    <Content Include="Views\Stages\Delete.cshtml" />
+    <Content Include="Views\Stages\Details.cshtml" />
+    <Content Include="Views\Stages\Edit.cshtml" />
+    <Content Include="Views\Stages\Index.cshtml" />
+    <Content Include="Views\Games\Create.cshtml" />
+    <Content Include="Views\Games\Delete.cshtml" />
+    <Content Include="Views\Games\Details.cshtml" />
+    <Content Include="Views\Games\Edit.cshtml" />
+    <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Stages\_Index.cshtml" />
+    <Content Include="Views\Games\_Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ChampionshipWeb.Models.game>
+
+<p>
+    @if (HttpContext.Current.User.IsInRole("admin, moder"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team1_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team2_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.game_state.name_ru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stage.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team.short_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team1.short_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.team1_score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.team2_score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.game_state.name_ru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stage.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.team.short_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.team1.short_name)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", "Games", new { id = item.id }, null)
+            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+                {
+                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+            }
+            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+                {
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            }
+        </td>
+    </tr>
+}
+
+</table>
