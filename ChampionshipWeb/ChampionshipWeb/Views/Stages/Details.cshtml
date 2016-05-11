@@ -37,8 +37,13 @@
     </dl>
 </div>
 
+
+<h3>Table</h3>
+@Html.Partial("Table", ViewBag.allTeamsScore as IEnumerable<ChampionshipWeb.Models.teams_in_stage>);
+
 <h3>Games</h3>
 @Html.Partial("~/Views/Games/_Index.cshtml", ViewBag.allGames as IEnumerable<ChampionshipWeb.Models.game>);
+
 
 <p>
     @if (HttpContext.Current.User.IsInRole("admin"))

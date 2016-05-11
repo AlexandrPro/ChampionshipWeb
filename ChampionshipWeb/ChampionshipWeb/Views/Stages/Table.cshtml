@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ChampionshipWeb.Models.teams_in_stage>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.game_count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.win)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.points_earned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.points_lost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team.short_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.game_count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.win)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.points_earned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.points_lost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.team.short_name)
+        </td>
+    </tr>
+}
+
+</table>

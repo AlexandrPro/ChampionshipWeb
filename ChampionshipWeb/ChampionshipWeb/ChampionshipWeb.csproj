@@ -306,6 +306,7 @@
     <Content Include="Views\Games\Index.cshtml" />
     <Content Include="Views\Stages\_Index.cshtml" />
     <Content Include="Views\Games\_Index.cshtml" />
+    <Content Include="Views\Stages\Table.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

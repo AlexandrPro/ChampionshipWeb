@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Aleks_000\OneDrive\Учеба\Диплом\ChampionshipWeb\ChampionshipWeb\Models\ChampionshipModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\ChampionshipWeb\Models\ChampionshipModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

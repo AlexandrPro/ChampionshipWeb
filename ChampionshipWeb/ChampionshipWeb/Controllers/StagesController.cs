@@ -54,8 +54,22 @@ namespace ChampionshipWeb.Controllers
                        select game;
             ViewBag.allGames = allGames;
 
+            IEnumerable<teams_in_stage> allTeamsScore = null;
+            allTeamsScore = from teams_in_stage in db.teams_in_stage
+                            .Include(t => t.team)
+                            .Include(t => t.stage)
+                            .OrderByDescending(t => t.score)
+                            where teams_in_stage.stage_id == id
+                            select teams_in_stage;
+            ViewBag.allTeamsScore = allTeamsScore;
 
             return View(stage);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Table()
+        {
+            return PartialView();
         }
 
         [AllowAnonymous]

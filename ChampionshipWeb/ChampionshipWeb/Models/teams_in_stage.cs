@@ -16,7 +16,12 @@ namespace ChampionshipWeb.Models
     {
         public int teams_id { get; set; }
         public int stage_id { get; set; }
-        public Nullable<int> teamscore { get; set; }
+        public int game_count { get; set; }
+        public int win { get; set; }
+        public int lose { get; set; }
+        public Nullable<int> score { get; set; }
+        public int points_earned { get; set; }
+        public int points_lost { get; set; }
     
         public virtual stage stage { get; set; }
         public virtual team team { get; set; }

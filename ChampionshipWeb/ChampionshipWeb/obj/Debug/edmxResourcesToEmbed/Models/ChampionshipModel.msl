@@ -150,9 +150,14 @@
     <EntitySetMapping Name="teams_in_stage">
       <EntityTypeMapping TypeName="championshipModel.teams_in_stage">
         <MappingFragment StoreEntitySet="teams_in_stage">
+          <ScalarProperty Name="points_lost" ColumnName="points_lost" />
+          <ScalarProperty Name="points_earned" ColumnName="points_earned" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="lose" ColumnName="lose" />
+          <ScalarProperty Name="win" ColumnName="win" />
+          <ScalarProperty Name="game_count" ColumnName="game_count" />
           <ScalarProperty Name="teams_id" ColumnName="teams_id" />
           <ScalarProperty Name="stage_id" ColumnName="stage_id" />
-          <ScalarProperty Name="teamscore" ColumnName="teamscore" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

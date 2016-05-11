@@ -103,6 +103,6 @@ C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\Championship
 C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\ChampionshipWeb\bin\System.Web.Webpages.Razor.xml
 C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\ChampionshipWeb\bin\System.Web.Helpers.xml
 C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\ChampionshipWeb\bin\System.Web.Mvc.xml
-C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\ChampionshipWeb\obj\Debug\ChampionshipWeb.csprojResolveAssemblyReference.cache
 C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\ChampionshipWeb\obj\Debug\ChampionshipWeb.dll
 C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\ChampionshipWeb\obj\Debug\ChampionshipWeb.pdb
+C:\Users\Aleks_000\Documents\GitHub\ChampionshipWeb\ChampionshipWeb\ChampionshipWeb\obj\Debug\ChampionshipWeb.csprojResolveAssemblyReference.cache

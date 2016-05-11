@@ -104,7 +104,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="championship_id" Type="int" Nullable="false" />
     <Property Name="type_of_stage_id" Type="int" Nullable="false" />
@@ -148,8 +148,13 @@
       <PropertyRef Name="stage_id" />
     </Key>
     <Property Name="teams_id" Type="int" Nullable="false" />
-    <Property Name="stage_id" Type="int" Nullable="false" />
-    <Property Name="teamscore" Type="int" />
+    <Property Name="stage_id" Type="uint" Nullable="false" />
+    <Property Name="game_count" Type="int" Nullable="false" />
+    <Property Name="win" Type="int" Nullable="false" />
+    <Property Name="lose" Type="int" Nullable="false" />
+    <Property Name="score" Type="int" />
+    <Property Name="points_earned" Type="int" Nullable="false" />
+    <Property Name="points_lost" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="type_of_stage">
     <Key>
@@ -301,18 +306,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_teams_has_stage_stage1">
-    <End Role="stage" Type="Self.stage" Multiplicity="1" />
-    <End Role="teams_in_stage" Type="Self.teams_in_stage" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="stage">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="teams_in_stage">
-        <PropertyRef Name="stage_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_teams_has_stage_teams1">
     <End Role="teams" Type="Self.teams" Multiplicity="1" />
     <End Role="teams_in_stage" Type="Self.teams_in_stage" Multiplicity="*" />
@@ -446,10 +439,6 @@
     <AssociationSet Name="fk_teams_coach1" Association="Self.fk_teams_coach1">
       <End Role="coach" EntitySet="coach" />
       <End Role="teams" EntitySet="teams" />
-    </AssociationSet>
-    <AssociationSet Name="fk_teams_has_stage_stage1" Association="Self.fk_teams_has_stage_stage1">
-      <End Role="stage" EntitySet="stage" />
-      <End Role="teams_in_stage" EntitySet="teams_in_stage" />
     </AssociationSet>
     <AssociationSet Name="fk_teams_has_stage_teams1" Association="Self.fk_teams_has_stage_teams1">
       <End Role="teams" EntitySet="teams" />

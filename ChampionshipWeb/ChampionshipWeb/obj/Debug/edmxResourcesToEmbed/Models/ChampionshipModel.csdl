@@ -171,9 +171,14 @@
     </Key>
     <Property Name="teams_id" Type="Int32" Nullable="false" />
     <Property Name="stage_id" Type="Int32" Nullable="false" />
-    <Property Name="teamscore" Type="Int32" />
     <NavigationProperty Name="stage" Relationship="Self.fk_teams_has_stage_stage1" FromRole="teams_in_stage" ToRole="stage" />
     <NavigationProperty Name="team" Relationship="Self.fk_teams_has_stage_teams1" FromRole="teams_in_stage" ToRole="teams" />
+    <Property Name="game_count" Type="Int32" Nullable="false" />
+    <Property Name="win" Type="Int32" Nullable="false" />
+    <Property Name="lose" Type="Int32" Nullable="false" />
+    <Property Name="score" Type="Int32" />
+    <Property Name="points_earned" Type="Int32" Nullable="false" />
+    <Property Name="points_lost" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="type_of_stage">
     <Key>

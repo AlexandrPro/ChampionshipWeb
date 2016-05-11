@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="championshipModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="championshipModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="championship">
           <Key>
             <PropertyRef Name="id" />
@@ -109,7 +109,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="championship_id" Type="int" Nullable="false" />
           <Property Name="type_of_stage_id" Type="int" Nullable="false" />
@@ -153,8 +153,13 @@
             <PropertyRef Name="stage_id" />
           </Key>
           <Property Name="teams_id" Type="int" Nullable="false" />
-          <Property Name="stage_id" Type="int" Nullable="false" />
-          <Property Name="teamscore" Type="int" />
+          <Property Name="stage_id" Type="uint" Nullable="false" />
+          <Property Name="game_count" Type="int" Nullable="false" />
+          <Property Name="win" Type="int" Nullable="false" />
+          <Property Name="lose" Type="int" Nullable="false" />
+          <Property Name="score" Type="int" />
+          <Property Name="points_earned" Type="int" Nullable="false" />
+          <Property Name="points_lost" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="type_of_stage">
           <Key>
@@ -306,18 +311,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_teams_has_stage_stage1">
-          <End Role="stage" Type="Self.stage" Multiplicity="1" />
-          <End Role="teams_in_stage" Type="Self.teams_in_stage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="stage">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="teams_in_stage">
-              <PropertyRef Name="stage_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_teams_has_stage_teams1">
           <End Role="teams" Type="Self.teams" Multiplicity="1" />
           <End Role="teams_in_stage" Type="Self.teams_in_stage" Multiplicity="*" />
@@ -452,10 +445,6 @@
             <End Role="coach" EntitySet="coach" />
             <End Role="teams" EntitySet="teams" />
           </AssociationSet>
-          <AssociationSet Name="fk_teams_has_stage_stage1" Association="Self.fk_teams_has_stage_stage1">
-            <End Role="stage" EntitySet="stage" />
-            <End Role="teams_in_stage" EntitySet="teams_in_stage" />
-          </AssociationSet>
           <AssociationSet Name="fk_teams_has_stage_teams1" Association="Self.fk_teams_has_stage_teams1">
             <End Role="teams" EntitySet="teams" />
             <End Role="teams_in_stage" EntitySet="teams_in_stage" />
@@ -481,8 +470,7 @@
             <End Role="players" EntitySet="players" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="championshipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -657,9 +645,14 @@
           </Key>
           <Property Name="teams_id" Type="Int32" Nullable="false" />
           <Property Name="stage_id" Type="Int32" Nullable="false" />
-          <Property Name="teamscore" Type="Int32" />
           <NavigationProperty Name="stage" Relationship="Self.fk_teams_has_stage_stage1" FromRole="teams_in_stage" ToRole="stage" />
           <NavigationProperty Name="team" Relationship="Self.fk_teams_has_stage_teams1" FromRole="teams_in_stage" ToRole="teams" />
+          <Property Name="game_count" Type="Int32" Nullable="false" />
+          <Property Name="win" Type="Int32" Nullable="false" />
+          <Property Name="lose" Type="Int32" Nullable="false" />
+          <Property Name="score" Type="Int32" />
+          <Property Name="points_earned" Type="Int32" Nullable="false" />
+          <Property Name="points_lost" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="type_of_stage">
           <Key>
@@ -1118,9 +1111,14 @@
           <EntitySetMapping Name="teams_in_stage">
             <EntityTypeMapping TypeName="championshipModel.teams_in_stage">
               <MappingFragment StoreEntitySet="teams_in_stage">
+                <ScalarProperty Name="points_lost" ColumnName="points_lost" />
+                <ScalarProperty Name="points_earned" ColumnName="points_earned" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="lose" ColumnName="lose" />
+                <ScalarProperty Name="win" ColumnName="win" />
+                <ScalarProperty Name="game_count" ColumnName="game_count" />
                 <ScalarProperty Name="teams_id" ColumnName="teams_id" />
                 <ScalarProperty Name="stage_id" ColumnName="stage_id" />
-                <ScalarProperty Name="teamscore" ColumnName="teamscore" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
