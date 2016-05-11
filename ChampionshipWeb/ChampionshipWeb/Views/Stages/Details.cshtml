@@ -4,14 +4,12 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>stage</h4>
+    <h2>Этап</h2>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.name)
+            Название
         </dt>
 
         <dd>
@@ -19,7 +17,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.championship.name)
+            Чемпионат
         </dt>
 
         <dd>
@@ -27,7 +25,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.type_of_stage.name_ru)
+            Тип этапа
         </dt>
 
         <dd>
@@ -37,18 +35,18 @@
     </dl>
 </div>
 
-
-<h3>Table</h3>
-@Html.Partial("Table", ViewBag.allTeamsScore as IEnumerable<ChampionshipWeb.Models.teams_in_stage>);
-
-<h3>Games</h3>
-@Html.Partial("~/Views/Games/_Index.cshtml", ViewBag.allGames as IEnumerable<ChampionshipWeb.Models.game>);
-
-
 <p>
     @if (HttpContext.Current.User.IsInRole("admin"))
     {
-        @Html.ActionLink("Edit", "Edit", new { id = Model.id })
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.id })
     }
-    @Html.ActionLink("Back to List", "Index")
 </p>
+
+
+<h3>Турнирная таблица</h3>
+@Html.Partial("Table", ViewBag.allTeamsScore as IEnumerable<ChampionshipWeb.Models.teams_in_stage>);
+
+<h3>Игры этапа</h3>
+@Html.Partial("~/Views/Games/_Index.cshtml", ViewBag.allGames as IEnumerable<ChampionshipWeb.Models.game>);
+
+

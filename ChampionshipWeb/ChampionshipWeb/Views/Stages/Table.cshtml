@@ -4,31 +4,34 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.game_count)
+            Команда
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.win)
+            Кол-во игр
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lose)
+            Выиграно
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.score)
+            Проиграно
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.points_earned)
+            Очки
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.points_lost)
+            Очков заработано 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.team.short_name)
+            Очков проиграно 
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.team.short_name)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.game_count)
         </td>
@@ -46,9 +49,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.points_lost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.team.short_name)
         </td>
     </tr>
 }

@@ -12,7 +12,7 @@
         </h2>
 
         <dt>
-            Name
+            Название
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            City
+            Город
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            Coach
+            Тренер
         </dt>
 
         <dd>
@@ -38,7 +38,7 @@
     </dl>
 </div>
 
-<h3>Players</h3>
+<h3>Игроки</h3>
 @Html.Partial("~/Views/Players/_Index.cshtml", ViewBag.allPlayers as IEnumerable<ChampionshipWeb.Models.player>);
 
 
@@ -47,5 +47,4 @@
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.id }) 
     }
-    @Html.ActionLink("Back to List", "Index")
 </p>

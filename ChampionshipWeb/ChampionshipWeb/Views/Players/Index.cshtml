@@ -9,7 +9,7 @@
     <form method="post" action="/Players/Index">
         <tr>
             <td><p>Team: </p></td>
-            <td> @Html.DropDownList("team", ViewBag.Teams as SelectList)</td>
+            <td> @Html.DropDownList("Команда", ViewBag.Teams as SelectList)</td>
             <td><input type="submit" value="Фильтр" /> </td>
         </tr>
     </form>
@@ -19,24 +19,24 @@
 <h2>Index</h2>
 
 <p>
-    @if (HttpContext.Current.User.IsInRole("admin, moder"))
+    @if (HttpContext.Current.User.IsInRole("admin"))
     {
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать нового", "Create")
     }
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.name)
+            Имя
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.player_state.name_ru)
+            Статус
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.position.name_ru)
+            Позиция
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.team.short_name)
+            Команда
         </th>
         <th></th>
     </tr>
@@ -56,14 +56,14 @@
             @Html.DisplayFor(modelItem => item.team.short_name)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id = item.id })
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @Html.ActionLink("Детали", "Details", new { id = item.id })
+            @if (HttpContext.Current.User.IsInRole("admin"))
             {
-                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.id })
             }
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @if (HttpContext.Current.User.IsInRole("admin"))
             {
-                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                @Html.ActionLink("Удалить", "Delete", new { id=item.id })
             }
         </td>
     </tr>

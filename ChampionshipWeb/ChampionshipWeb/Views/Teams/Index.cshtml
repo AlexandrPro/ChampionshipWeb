@@ -4,27 +4,27 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Команды</h2>
 
 <p>
-    @if (HttpContext.Current.User.IsInRole("moder"))
+    @if (HttpContext.Current.User.IsInRole("admin"))
     {
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новую", "Create")
     }
 </p>
 <table class="table">
     <tr>
         <th>
-            Short Name
+            Короткое название
         </th>
         <th>
-            Name
+            Название
         </th>
         <th>
-            City
+            Город
         </th>
         <th>
-            Coach
+            Тренер
         </th>
         <th></th>
     </tr>
@@ -44,14 +44,14 @@
             @Html.DisplayFor(modelItem => item.coach.name)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id = item.id })
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @Html.ActionLink("Детали", "Details", new { id = item.id })
+            @if (HttpContext.Current.User.IsInRole("admin"))
             {
-                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.id })
             }
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @if (HttpContext.Current.User.IsInRole("admin"))
             {
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Html.ActionLink("Удалить", "Delete", new { id = item.id })
             }
         </td>
     </tr>

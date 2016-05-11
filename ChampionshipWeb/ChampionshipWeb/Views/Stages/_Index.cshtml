@@ -1,21 +1,24 @@
 ﻿@model IEnumerable<ChampionshipWeb.Models.stage>
 
+<p></p>
+<h3>
+    Этапы чемпионата
+</h3>
+
+
 <p>
-    @if (HttpContext.Current.User.IsInRole("admin, moder"))
+    @if (HttpContext.Current.User.IsInRole("admin"))
     {
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новый", "Create", "Stages")
     }
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.name)
+            Название
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.championship.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.type_of_stage.name_ru)
+            Тип этапа
         </th>
         <th></th>
     </tr>
@@ -26,20 +29,17 @@
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.championship.name)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.type_of_stage.name_ru)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", "Stages", new { id = item.id }, null)
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @Html.ActionLink("Детали", "Details", "Stages", new { id = item.id }, null)
+            @if (HttpContext.Current.User.IsInRole("admin"))
                 {
-                @Html.ActionLink("Edit", "Edit", "Stages", new { id = item.id }, null)
+                @Html.ActionLink("Редактировать", "Edit", "Stages", new { id = item.id }, null)
             }
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @if (HttpContext.Current.User.IsInRole("admin"))
                 {
-                @Html.ActionLink("Delete", "Delete", "Stages", new { id = item.id }, null)
+                @Html.ActionLink("Удалить", "Delete", "Stages", new { id = item.id }, null)
             }
         </td>
     </tr>

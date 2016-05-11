@@ -20,17 +20,15 @@
                     <li>@Html.ActionLink("Чемпионаты", "Index", "Championships")</li>
                     <li>@Html.ActionLink("Команды", "Index", "Teams")</li>
                     <li>@Html.ActionLink("Игроки", "Index", "Players")</li>
+                    @if (HttpContext.Current.User.IsInRole("admin"))
+                    {
+                        <li>
+                            @Html.ActionLink("Выход", "LogOff", "Account");
+                        </li>
+                    }
                 </ul>
             </div> 
 
-
-
-            @if (HttpContext.Current.User.IsInRole("admin"))
-            {
-                <div>
-                    @Html.ActionLink("Exit", "LogOff", "Account");
-                </div>
-            }
         </div>
     </div>
 

@@ -1,36 +1,27 @@
 ﻿@model IEnumerable<ChampionshipWeb.Models.game>
 
 <p>
-    @if (HttpContext.Current.User.IsInRole("admin, moder"))
+    @if (HttpContext.Current.User.IsInRole("admin"))
     {
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новую", "Create", "Games")
     }
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.date)
+            Дата
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.team1_score)
+            Команда 1
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.team2_score)
+            Команда 2
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.place)
+            Счет команды 1
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.game_state.name_ru)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.stage.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.team.short_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.team1.short_name)
+            Счет команды 2
         </th>
         <th></th>
     </tr>
@@ -41,35 +32,26 @@
             @Html.DisplayFor(modelItem => item.date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.team1_score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.team2_score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.place)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.game_state.name_ru)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.stage.name)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.team.short_name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.team1.short_name)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", "Games", new { id = item.id }, null)
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @Html.DisplayFor(modelItem => item.team1_score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.team2_score)
+        </td>
+        <td>
+            @Html.ActionLink("Детали", "Details", "Games", new { id = item.id }, null)
+            @if (HttpContext.Current.User.IsInRole("admin"))
                 {
-                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                @Html.ActionLink("Редактировать", "Edit", "Games", new { id = item.id }, null)
             }
-            @if (HttpContext.Current.User.IsInRole("admin, moder"))
+            @if (HttpContext.Current.User.IsInRole("admin"))
                 {
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Html.ActionLink("Удалить", "Delete", "Games", new { id = item.id }, null)
             }
         </td>
     </tr>
