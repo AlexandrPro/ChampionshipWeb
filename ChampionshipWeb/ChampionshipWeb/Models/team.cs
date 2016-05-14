@@ -28,6 +28,7 @@ namespace ChampionshipWeb.Models
         public string name { get; set; }
         public Nullable<int> coach_id { get; set; }
         public Nullable<int> citys_id { get; set; }
+        public string photo_path { get; set; }
     
         public virtual city city { get; set; }
         public virtual coach coach { get; set; }

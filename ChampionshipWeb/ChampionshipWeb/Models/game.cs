@@ -6,6 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace ChampionshipWeb.Models
 {
@@ -22,7 +23,8 @@ namespace ChampionshipWeb.Models
         }
     
         public int id { get; set; }
-        public Nullable<System.DateTime> date { get; set; }
+        [DataType(DataType.Date)]
+        public System.DateTime date { get; set; }
         public Nullable<int> team1_id { get; set; }
         public Nullable<int> team2_id { get; set; }
         public Nullable<int> team1_score { get; set; }

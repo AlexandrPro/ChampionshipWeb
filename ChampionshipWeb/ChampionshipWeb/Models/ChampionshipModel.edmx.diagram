@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7d9c620d82734ab3889aea5d112f0d73" Name="Diagram1">
+      <Diagram DiagramId="7d9c620d82734ab3889aea5d112f0d73" Name="Diagram1" ZoomLevel="95">
         <EntityTypeShape EntityType="championshipModel.championship" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="championshipModel.city" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="championshipModel.coach" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />

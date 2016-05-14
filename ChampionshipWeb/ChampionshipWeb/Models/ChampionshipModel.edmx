@@ -42,7 +42,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="date" Type="date" />
+          <Property Name="date" Type="date" Nullable="false" />
           <Property Name="team1_id" Type="int" />
           <Property Name="team2_id" Type="int" />
           <Property Name="team1_score" Type="int" />
@@ -146,6 +146,7 @@
           <Property Name="name" Type="varchar" MaxLength="200" />
           <Property Name="coach_id" Type="int" />
           <Property Name="citys_id" Type="int" />
+          <Property Name="photo_path" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="teams_in_stage">
           <Key>
@@ -515,7 +516,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="date" Type="DateTime" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
           <Property Name="team1_id" Type="Int32" />
           <Property Name="team2_id" Type="Int32" />
           <Property Name="team1_score" Type="Int32" />
@@ -637,6 +638,7 @@
           <NavigationProperty Name="games1" Relationship="Self.game_team2_FK" FromRole="teams" ToRole="games" />
           <NavigationProperty Name="players" Relationship="Self.player_team_FK" FromRole="teams" ToRole="players" />
           <NavigationProperty Name="teams_in_stage" Relationship="Self.fk_teams_has_stage_teams1" FromRole="teams" ToRole="teams_in_stage" />
+          <Property Name="photo_path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="teams_in_stage">
           <Key>
@@ -1100,6 +1102,7 @@
           <EntitySetMapping Name="teams">
             <EntityTypeMapping TypeName="championshipModel.team">
               <MappingFragment StoreEntitySet="teams">
+                <ScalarProperty Name="photo_path" ColumnName="photo_path" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="short_name" ColumnName="short_name" />
                 <ScalarProperty Name="name" ColumnName="name" />

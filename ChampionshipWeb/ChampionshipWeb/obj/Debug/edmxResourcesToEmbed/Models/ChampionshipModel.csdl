@@ -41,7 +41,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="date" Type="DateTime" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
     <Property Name="team1_id" Type="Int32" />
     <Property Name="team2_id" Type="Int32" />
     <Property Name="team1_score" Type="Int32" />
@@ -163,6 +163,7 @@
     <NavigationProperty Name="games1" Relationship="Self.game_team2_FK" FromRole="teams" ToRole="games" />
     <NavigationProperty Name="players" Relationship="Self.player_team_FK" FromRole="teams" ToRole="players" />
     <NavigationProperty Name="teams_in_stage" Relationship="Self.fk_teams_has_stage_teams1" FromRole="teams" ToRole="teams_in_stage" />
+    <Property Name="photo_path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="teams_in_stage">
     <Key>

@@ -139,6 +139,7 @@
     <EntitySetMapping Name="teams">
       <EntityTypeMapping TypeName="championshipModel.team">
         <MappingFragment StoreEntitySet="teams">
+          <ScalarProperty Name="photo_path" ColumnName="photo_path" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="short_name" ColumnName="short_name" />
           <ScalarProperty Name="name" ColumnName="name" />

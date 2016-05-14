@@ -37,7 +37,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="date" Type="date" />
+    <Property Name="date" Type="date" Nullable="false" />
     <Property Name="team1_id" Type="int" />
     <Property Name="team2_id" Type="int" />
     <Property Name="team1_score" Type="int" />
@@ -141,6 +141,7 @@
     <Property Name="name" Type="varchar" MaxLength="200" />
     <Property Name="coach_id" Type="int" />
     <Property Name="citys_id" Type="int" />
+    <Property Name="photo_path" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="teams_in_stage">
     <Key>
