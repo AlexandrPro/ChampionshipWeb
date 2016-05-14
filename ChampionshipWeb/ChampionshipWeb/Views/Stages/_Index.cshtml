@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.type_of_stage.name_ru)
         </td>
         <td>
-            @Html.ActionLink("Детали", "Details", "Stages", new { id = item.id }, null)
+            @Html.ActionLink("Подробнее", "Details", "Stages", new { id = item.id }, null)
             @if (HttpContext.Current.User.IsInRole("admin"))
                 {
                 @Html.ActionLink("Редактировать", "Edit", "Stages", new { id = item.id }, null)

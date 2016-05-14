@@ -138,5 +138,15 @@ namespace ChampionshipWeb.Controllers
             }
             base.Dispose(disposing);
         }
+
+        private bool isPlayerExist(int? id)
+        {
+            if (id == null)
+                return false;
+            championship championship = db.championships.Find(id);
+            if (championship == null)
+                return false;
+            return true;
+        }
     }
 }

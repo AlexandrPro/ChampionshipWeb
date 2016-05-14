@@ -8,8 +8,8 @@
 <div>
     <form method="post" action="/Players/Index">
         <tr>
-            <td><p>Team: </p></td>
-            <td> @Html.DropDownList("Команда", ViewBag.Teams as SelectList)</td>
+            <td><p>Команда: </p></td>
+            <td> @Html.DropDownList("team", ViewBag.Teams as SelectList)</td>
             <td><input type="submit" value="Фильтр" /> </td>
         </tr>
     </form>
@@ -56,7 +56,7 @@
             @Html.DisplayFor(modelItem => item.team.short_name)
         </td>
         <td>
-            @Html.ActionLink("Детали", "Details", new { id = item.id })
+            @Html.ActionLink("Подробнее", "Details", new { id = item.id })
             @if (HttpContext.Current.User.IsInRole("admin"))
             {
                 @Html.ActionLink("Редактировать", "Edit", new { id = item.id })

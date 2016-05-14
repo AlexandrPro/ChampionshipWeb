@@ -44,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.coach.name)
         </td>
         <td>
-            @Html.ActionLink("Детали", "Details", new { id = item.id })
+            @Html.ActionLink("Подробнее", "Details", new { id = item.id })
             @if (HttpContext.Current.User.IsInRole("admin"))
             {
                 @Html.ActionLink("Редактировать", "Edit", new { id = item.id })

@@ -44,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.team2_score)
         </td>
         <td>
-            @Html.ActionLink("Детали", "Details", "Games", new { id = item.id }, null)
+            @Html.ActionLink("Подробнее", "Details", "Games", new { id = item.id }, null)
             @if (HttpContext.Current.User.IsInRole("admin"))
                 {
                 @Html.ActionLink("Редактировать", "Edit", "Games", new { id = item.id }, null)

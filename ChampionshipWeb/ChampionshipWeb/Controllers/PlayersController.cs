@@ -79,7 +79,7 @@ namespace ChampionshipWeb.Controllers
         }
 
         // GET: Players/Create
-        [Authorize(Roles = "admin, moder")]
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             ViewBag.player_state_id = new SelectList(db.player_state, "id", "name_ru");
@@ -92,7 +92,7 @@ namespace ChampionshipWeb.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "admin, moder")]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,name,team_id,date_of_birth,weight,height,position_id,photo_path,player_state_id")] player player)
         {
@@ -110,7 +110,7 @@ namespace ChampionshipWeb.Controllers
         }
 
         // GET: Players/Edit/5
-        [Authorize(Roles = "admin, moder")]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -132,7 +132,7 @@ namespace ChampionshipWeb.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "admin, moder")]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,name,team_id,date_of_birth,weight,height,position_id,photo_path,player_state_id")] player player)
         {
@@ -149,7 +149,7 @@ namespace ChampionshipWeb.Controllers
         }
 
         // GET: Players/Delete/5
-        [Authorize(Roles = "admin, moder")]
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -166,7 +166,7 @@ namespace ChampionshipWeb.Controllers
 
         // POST: Players/Delete/5
         [HttpPost, ActionName("Delete")]
-        [Authorize(Roles = "admin, moder")]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

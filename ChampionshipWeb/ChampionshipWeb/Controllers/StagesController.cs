@@ -128,9 +128,10 @@ namespace ChampionshipWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                int champ_id = stage.championship_id;
                 db.stages.Add(stage);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Championships", new { id = champ_id});
             }
 
             ViewBag.championship_id = new SelectList(db.championships, "id", "name", stage.championship_id);
@@ -166,9 +167,10 @@ namespace ChampionshipWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                int champ_id = stage.championship_id;
                 db.Entry(stage).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Championships", new { id = champ_id });
             }
             ViewBag.championship_id = new SelectList(db.championships, "id", "name", stage.championship_id);
             ViewBag.type_of_stage_id = new SelectList(db.type_of_stage, "id", "name_ru", stage.type_of_stage_id);
@@ -198,9 +200,10 @@ namespace ChampionshipWeb.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             stage stage = db.stages.Find(id);
+            int champ_id = stage.championship_id;
             db.stages.Remove(stage);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Championships", new { id = champ_id });
         }
 
         protected override void Dispose(bool disposing)
