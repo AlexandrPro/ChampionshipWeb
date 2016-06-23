@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7d9c620d82734ab3889aea5d112f0d73" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="championshipModel.championship" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.city" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.coach" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.game_state" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.game" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.judge" Width="1.5" PointX="7.5" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.player_state" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.player" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.position" Width="1.5" PointX="6" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.role" Width="1.5" PointX="8.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.stage" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.statistic" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.team" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.teams_in_stage" Width="1.5" PointX="6.375" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.type_of_stage" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="championshipModel.user" Width="1.5" PointX="11" PointY="1.5" IsExpanded="true" />
+      <Diagram DiagramId="7d9c620d82734ab3889aea5d112f0d73" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="championshipModel.championship" Width="1.5" PointX="5.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.city" Width="1.5" PointX="10.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.coach" Width="1.5" PointX="10.125" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.game_state" Width="1.5" PointX="3.375" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.game" Width="1.5" PointX="5.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.judge" Width="1.5" PointX="3.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.player_state" Width="1.5" PointX="10.375" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.player" Width="1.5" PointX="8" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.position" Width="1.5" PointX="10.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.role" Width="1.5" PointX="10.125" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.stage" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.statistic" Width="1.5" PointX="5.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.team" Width="1.5" PointX="8.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.teams_in_stage" Width="1.5" PointX="8" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.type_of_stage" Width="1.5" PointX="3.875" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="championshipModel.user" Width="1.5" PointX="12.125" PointY="1.625" IsExpanded="true" />
         <AssociationConnector Association="championshipModel.fk_stage_championship1" ManuallyRouted="false" />
         <AssociationConnector Association="championshipModel.fk_teams_citys1" ManuallyRouted="false" />
         <AssociationConnector Association="championshipModel.fk_teams_coach1" ManuallyRouted="false" />

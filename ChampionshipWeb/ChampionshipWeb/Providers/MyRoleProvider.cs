@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Security;
-using System.Web.Helpers;
-using System.Web.WebPages;
-using Microsoft.Internal.Web.Utils;
 using ChampionshipWeb.Models;
 
 namespace ChampionshipWeb.Providers

@@ -11,7 +11,7 @@ namespace ChampionshipWeb.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class player
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +23,7 @@ namespace ChampionshipWeb.Models
         public int id { get; set; }
         public string name { get; set; }
         public Nullable<int> team_id { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> date_of_birth { get; set; }
         public Nullable<int> weight { get; set; }
         public Nullable<int> height { get; set; }

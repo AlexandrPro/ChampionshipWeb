@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ChampionshipWeb.Models;
+using System.Web;
+using System.IO;
 
 namespace ChampionshipWeb.Controllers
 {
@@ -94,10 +94,20 @@ namespace ChampionshipWeb.Controllers
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,team_id,date_of_birth,weight,height,position_id,photo_path,player_state_id")] player player)
+        public ActionResult Create([Bind(Include = "id,name,team_id,date_of_birth,weight,height,position_id,photo_path,player_state_id")] player player, HttpPostedFileBase filepath)
         {
             if (ModelState.IsValid)
             {
+                if (filepath != null && filepath.ContentLength > 0)
+                {
+                    // extract only the fielname
+                    string fileName = Path.GetFileName(filepath.FileName);
+                    // store the file inside~/App_Data/photos folder
+                    string path = Path.Combine(Server.MapPath("~/App_Data/photos"), fileName);
+                    filepath.SaveAs(path);
+                    // save file path in DB
+                    player.photo_path = fileName;
+                }
                 db.players.Add(player);
                 db.SaveChanges();
                 return RedirectToAction("Index");
